@@ -8,14 +8,14 @@
 			"name": "HexDimensional",
 			"description": "Hexcasting goes cross-dimensional!",
 			"contributors": {
-				"Your name here": "EndlessStormWolf"
+				"EndlessStormWolf": "Owner"
 			},
 			"contact": {
 				"homepage": "https://endlessstormwolf.org",
 				"issues": "https://github.com/EndlessStormWolf/HexDimensional/issues",
 				"sources": "https://github.com/EndlessStormWolf/HexDimensional"
 			},
-			"icon": "assets/example_mod/icon.png"
+			"icon": "assets/hexdimensional/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
@@ -33,6 +33,19 @@
 			{
 				"id": "minecraft",
 				"versions": ">=1.19.2"
+			},
+			{
+				"id": "hexcasting",
+				"versions": ">=0.10.3"
+			},
+			{
+				"id": "hexal",
+				"versions": ">=0.2.17",
+				"optional": true
+			},
+			{
+				"id": "qkl",
+				"versions": ">=1.0.0"
 			}
 		]
 	},
