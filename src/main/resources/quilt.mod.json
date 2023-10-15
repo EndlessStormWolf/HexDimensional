@@ -1,25 +1,25 @@
 {
 	"schema_version": 1,
 	"quilt_loader": {
-		"group": "com.example",
-		"id": "example_mod",
+		"group": "org.endlessstormwolf",
+		"id": "hexdimensional",
 		"version": "${version}",
 		"metadata": {
-			"name": "Mod Name",
-			"description": "A short description of your mod.",
+			"name": "HexDimensional",
+			"description": "Hexcasting goes cross-dimensional!",
 			"contributors": {
-				"Your name here": "Owner"
+				"Your name here": "EndlessStormWolf"
 			},
 			"contact": {
-				"homepage": "https://example.com/",
-				"issues": "https://github.com/QuiltMC/quilt-template-mod/issues",
-				"sources": "https://github.com/QuiltMC/quilt-template-mod"
+				"homepage": "https://endlessstormwolf.org",
+				"issues": "https://github.com/EndlessStormWolf/HexDimensional/issues",
+				"sources": "https://github.com/EndlessStormWolf/HexDimensional"
 			},
 			"icon": "assets/example_mod/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "com.example.example_mod.ExampleMod"
+			"init": "org.endlessstormwolf.hexdimensional.HexDimensional"
 		},
 		"depends": [
 			{
@@ -36,5 +36,5 @@
 			}
 		]
 	},
-	"mixin": "example_mod.mixins.json"
+	"mixin": "hexdimensional.mixins.json"
 }
