@@ -1,6 +1,7 @@
 plugins {
 	id 'maven-publish'
 	alias libs.plugins.quilt.loom
+	alias(libs.plugins.kotlin)
 }
 
 archivesBaseName = project.archives_base_name
@@ -13,6 +14,71 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+	mavenCentral()
+
+	maven {
+		url = "https://maven.quiltmc.org/repository/release/"
+		name = "Quilt"
+	}
+
+	maven {
+		url = "https://maven.quiltmc.org/repository/snapshot/"
+		name = "Quilt Snapshots"
+	}
+
+	maven {
+		url = "https://maven.blamejared.com/"
+		name = "BlameJared"
+	}
+
+	maven {
+		url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/"
+		name = "Geckolib"
+	}
+
+	maven {
+		url = "https://mvn.devos.one/snapshots/"
+	}
+	maven {
+		url = "https://maven.jamieswhiteshirt.com/libs-release/"
+	}
+	maven {
+		url = "https://maven.shedaniel.me/"
+	}
+	maven {
+		url = "https://maven.terraformersmc.com/"
+		name = "TerraformersMC"
+	}
+
+	maven {
+		url = "https://maven.ladysnake.org/releases"
+		name = "Ladysnake Libs"
+	}
+
+	maven {
+		url = "https://jitpack.io"
+		name = "JitPack"
+	}
+
+	maven {
+		url = "https://maven.gegy.dev/releases"
+	}
+
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
+		}
+	}
+
+	flatDir {
+		dirs("libs")
+	}
 }
 
 // All the dependencies are declared at gradle/libs.version.toml and referenced with "libs.<id>"
@@ -28,11 +94,29 @@ dependencies {
 	}
 	*/
 	modImplementation libs.quilt.loader
+	modImplementation(libs.bundles.kotlin)
+	modImplementation(libs.qsl)
+	modImplementation(libs.bundles.hexcasting) {
+		exclude(module : "fabric-language-kotlin")
+	}
+	modImplementation(libs.cca)
+	modImplementation(libs.patchouli)
+	modImplementation(libs.geckolib)
+
+
 
 	// QSL is not a complete API; You will need Quilted Fabric API to fill in the gaps.
 	// Quilted Fabric API will automatically pull in the correct QSL version.
 	modImplementation libs.quilted.fabric.api
 	// modImplementation libs.bundles.quilted.fabric.api // If you wish to use Fabric API's deprecated modules, you can replace the above line with this one
+	/*modImplementation "maven.modrinth:TZo2wHFe:zrxHAQQ7"
+	modImplementation "maven.modrinth:K01OU20C:5.0.2"
+	modImplementation "maven.modrinth:geckolib:3.1.40"
+	modImplementation "org.quiltmc.quilt-kotlin-libraries:quilt-kotlin-libraries:1.0.2+kt.1.8.0+flk.1.9.0"
+	modImplementation "maven.modrinth:cloth-config:8.2.88+fabric"
+	modImplementation "maven.modrinth:patchouli:1.19.2-77-fabric"
+*/
+
 }
 
 processResources {
